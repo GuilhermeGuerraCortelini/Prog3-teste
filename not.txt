@@ -1,0 +1,10 @@
+composer create-project laravel/laravel nome do projeto
+ir para pasta do projeto
+php artisan serve 
+seta pra cima volta os comandos
+git init
+abrir git desktop
+Commit é sempre local
+
+criar controller
+php artisan make:controller AnimaisController

@@ -6,13 +6,17 @@ git init
 abrir git desktop
 Commit é sempre local
 
-criar controller
+criar controller    
 php artisan make:controller AnimaisController
 
 error gravar form: 419 - Expirado
-CSRF-Cross-Site Request Forgery = criar chave
+CSRF-Cross-Site Request Forgery = criar chave  |  ( @csrf )
 
 migration = Gerenciamento de banco
 
 php artisan make:migration create_animais_table
 php artisan migrate 
+
+php artisan make:model Animal 
+
+Fillable = campos de dados preenchíveis 

@@ -1,18 +1,18 @@
 <?php
 
-use App\Http\Controllers\AnimaisController;
+use App\Http\Controllers\hoteisController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/animais', [AnimaisController::class, 'index'])->name('animais');
+Route::get('/hoteis', [hoteisController::class, 'index'])->name('hoteis');
 
 
 // duas 
-Route::get('/animais/cadastrar', [AnimaisController::class, 'cadastrar'])->name('animais.cadastrar');
-Route::post('/animais/cadastrar', [AnimaisController::class, 'gravar'])->name('animais.gravar');
+Route::get('/hoteis/cadastrar', [hoteisController::class, 'cadastrar'])->name('hoteis.cadastrar');
+Route::post('/hoteis/cadastrar', [hoteisController::class, 'gravar'])->name('hoteis.gravar');
 
-Route::get('/animais/apagar/{animal}', [AnimaisController::class, 'apagar'])->name('animais.apagar');
-Route::delete('/animais/apagar/{animal}', [AnimaisController::class, 'apagar']);
+Route::get('/hoteis/apagar/{hotel}', [hoteisController::class, 'apagar'])->name('hoteis.apagar');
+Route::delete('/hoteis/apagar/{hotel}', [hoteisController::class, 'apagar']);

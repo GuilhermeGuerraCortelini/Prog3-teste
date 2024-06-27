@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('animais', function (Blueprint $table) {
+        Schema::create('hoteis', function (Blueprint $table) {
+            // Campos no banco: id, nome, cidade, país, estrelas, valor da diária e comodidades.
             $table->id();
             $table->string('nome');
-            $table->smallInteger('idade')->unsigned();
+            $table->string('cidade');
+            $table->string('pais');
+            $table->integer('estrelas');
+            $table->integer('valorDiaria');            
+            $table->string('comodidades');
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('animais');
+        Schema::dropIfExists('hoteis');
     }
 };

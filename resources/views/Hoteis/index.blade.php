@@ -2,7 +2,7 @@
 
 @extends('base')
 
-@section('titulo', 'Cadastrar | Hotéis em um site de reservas')
+@section('titulo', 'Listagem | Hotéis em um site de reservas')
 
 @section('conteudo')
 <p>
@@ -18,7 +18,7 @@
         <th>Estrelas</th>
         <th>ValorDiaria</th>
         <th>Comodidades</th>
-        <th>Ação</th>
+        <th>Ações</th>
     </tr>
 
     @foreach($hoteis as $hotel)
@@ -29,7 +29,10 @@
         <td>{{$hotel['estrelas']}}</td>
         <td>{{$hotel['valorDiaria']}}</td>
         <td>{{$hotel['comodidades']}}</td>
-        <td><a href="{{route('hoteis.apagar', $hotel['id'])}}">Apagar</a></td>
+        <td>
+            <a href="{{route('hoteis.apagar', $hotel['id'])}}">Apagar</a> |
+            <a href="{{route('hoteis.alterar', $hotel['id'])}}">Alterar</a>
+        </td>
     </tr>
     @endforeach
 

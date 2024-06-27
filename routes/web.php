@@ -16,3 +16,6 @@ Route::post('/hoteis/cadastrar', [hoteisController::class, 'gravar'])->name('hot
 
 Route::get('/hoteis/apagar/{hotel}', [hoteisController::class, 'apagar'])->name('hoteis.apagar');
 Route::delete('/hoteis/apagar/{hotel}', [hoteisController::class, 'apagar']);
+
+Route::get('/hoteis/alterar/{hotel}', [hoteisController::class, 'alterar'])->name('hoteis.alterar');
+Route::put('/hoteis/alterar/{hotel}', [hoteisController::class, 'alterarGravar']);

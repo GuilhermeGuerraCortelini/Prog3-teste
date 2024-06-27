@@ -40,6 +40,30 @@ public function cadastrar(){
         return redirect()->route('hoteis');
     }
 
+    public function alterar(Hotel $hotel){
+        return view('hoteis.alterar', [
+            'hotel' => $hotel
+        ]);
+    }
+
+    public function alterarGravar(Request $form, Hotel $hotel){
+
+        $dados = $form->validate([
+            // Campos no banco: id, nome, cidade, país, estrelas, valor da diária e comodidades.
+            'nome' => 'required|min:3',
+            'cidade' => 'required|min:3',
+            'pais' => 'required|min:3',
+            'estrelas' => 'required|integer',
+            'valorDiaria' => 'required|integer',
+            'comodidades' => 'required|min:3',
+        ]);
+
+        $hotel->fill($dados);
+        $hotel->save();
+
+        return redirect()->route('hoteis');
+    }
+
     public function apagar(Hotel $hotel) {
         #dd($hotel);
         return view('hoteis.apagar', [

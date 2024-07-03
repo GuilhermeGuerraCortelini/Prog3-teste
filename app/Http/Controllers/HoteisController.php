@@ -64,10 +64,16 @@ public function cadastrar(){
         return redirect()->route('hoteis');
     }
 
-    public function apagar(Hotel $hotel) {
+    public function apagar(Hotel $hotel) { // vai no banco e pega o id do hotel | apagar() mostra na tela as informações
         #dd($hotel);
         return view('hoteis.apagar', [
             'hotel' => $hotel,
         ]);
+    }
+
+    public function deletar(Hotel $hotel){ // deleta do banco de fato
+        // dd($hotel);
+        $hotel->delete();
+        return redirect()->route('hoteis');
     }
 }

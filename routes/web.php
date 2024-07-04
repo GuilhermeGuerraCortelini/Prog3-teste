@@ -3,9 +3,9 @@
 use App\Http\Controllers\hoteisController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { // página inicial
+    return view('inicial');
+})->name('index');
 
 Route::get('/hoteis', [hoteisController::class, 'index'])->name('hoteis');
 

@@ -13,15 +13,23 @@ class HoteisSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('hoteis')->insert(
+        DB::table('hoteis')->insert([
+            [
+                'nome' => 'HotelBomDimaise',
+                'cidade' => 'Bento Gonçalves',
+                'pais' => 'Brasil',
+                'estrelas' => 4,
+                'valorDiaria' => 300,
+                'comodidades' => 'Slc',
+            ],
             [
                 'nome' => 'Hotelteste',
                 'cidade' => 'bento',
                 'pais' => 'brasil',
-                'estrelas' => '4',
-                'valorDiaria' => '3',
-                'comodidades' => 'oi'
-            ],
-    );
+                'estrelas' => 5,
+                'valorDiaria' => 500,
+                'comodidades' => 'Se é doido',
+            ]
+        ]);
     }
 }

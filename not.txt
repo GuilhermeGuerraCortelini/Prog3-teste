@@ -29,3 +29,8 @@ Fillable = campos de dados preenchíveis
 php artisan make:seeder HoteisSeeder
 - executar seeder
 php artisan db:seed
+
+Route -> web.php -> controllers -> views
+
+#TRADUZIR ERROS
+php artisan lang:publish pegar o arquivo de língua para trabalhar com ele

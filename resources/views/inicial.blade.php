@@ -2,7 +2,7 @@
 
 @extends('base')
 
-@section('titulo', 'Página Inicial | Hotéis em um site de reservas')
+@section('titulo', 'Página Inicial | Receba')
 
 @section('conteudo')
     <p>Sejam bem-vindos à página inicial do início</p>

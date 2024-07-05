@@ -8,7 +8,9 @@
         <hr>
         <a href="{{route('index')}}">Inicial</a> 
         |
-        <a href="{{route('hoteis')}}">Hoteis</a>
+        <a href="{{route('hoteis')}}">Hoteis</a> 
+        |
+        <a href="{{route('usuarios')}}">Usuarios</a>
         <hr>
         @yield('conteudo')
     </body>

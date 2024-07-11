@@ -31,3 +31,8 @@ Route::delete('/usuarios/apagar/{usuario}', [UsuariosController::class, 'deletar
 
 Route::get('/usuarios/alterar/{usuario}', [UsuariosController::class, 'alterar'])->name('usuarios.alterar');
 Route::put('/usuarios/alterar/{usuario}', [UsuariosController::class, 'alterarGravar']);
+
+#Login
+Route::get('/login', [UsuariosController::class, 'login'])->name('login'); // alt + shift + baixo
+Route::post('/login', [UsuariosController::class, 'login']);
+Route::get('/logout', [UsuariosController::class, 'logout'])->name('logout');

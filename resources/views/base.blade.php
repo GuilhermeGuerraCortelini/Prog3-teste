@@ -11,7 +11,9 @@
         <a href="{{route('hoteis')}}">Hoteis</a> 
         |
         <a href="{{route('usuarios')}}">Usuarios</a>
-        <hr>
+        |
+        <a href="{{route('login')}}">Login</a>
+        <hr> 
         @yield('conteudo')
     </body>
 </html>

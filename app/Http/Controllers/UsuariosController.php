@@ -10,7 +10,7 @@ class UsuariosController extends Controller
 {
     public function index(){
         // acessar estático ::
-        $dados = Usuario::all();
+        $dados = Usuario::orderBy('name', 'asc')->get(); // Ordem Alfabética 
         #dd($dados); // ter certeza que os dados estão vindo
         return view('usuarios.index', [
             'usuarios' => $dados,
@@ -25,7 +25,7 @@ class UsuariosController extends Controller
         $dados = $form->validate([
             // Campos no banco: id, nome, cidade, país, estrelas, valor da diária e comodidades.
             'name' => 'required',
-            'email' => 'email|required',
+            'email' => 'email|required|unique:usuarios', // não pode criar emails iguais
             'username' => 'required|min:3',
             'password' => 'required|min:3',
             'admin' => 'boolean',
@@ -47,7 +47,7 @@ class UsuariosController extends Controller
         $dados = $form->validate([
             // Campos no banco: id, nome, cidade, país, estrelas, valor da diária e comodidades.
             'name' => 'required',
-            'email' => 'email|required',
+            'email' => 'email|required', 
             'username' => 'required|min:3',
             'password' => 'required|min:3',
             'admin' => 'boolean',
@@ -57,6 +57,7 @@ class UsuariosController extends Controller
         
         $usuario->fill($dados);
         $usuario->save();
+        Usuario::create($dados);
 
         return redirect()->route('usuarios');
     }
@@ -72,5 +73,17 @@ class UsuariosController extends Controller
         // dd($usuario);
         $usuario->delete();
         return redirect()->route('usuarios');
+    }
+
+    public function login(Request $form){ // pegar o Formulário
+        if ($form->isMethod('POST')){ // se o request for post 
+            dd($form);
+        }
+
+        return view('usuarios.login'); // se for get
+    }
+
+    public function logout(){
+
     }
 }

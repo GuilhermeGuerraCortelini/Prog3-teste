@@ -58,7 +58,7 @@ class UsuariosController extends Controller
         
         $usuario->fill($dados);
         $usuario->save();
-        Usuario::create($dados);
+        // Usuario::create($dados);
 
         return redirect()->route('usuarios');
     }
@@ -83,8 +83,8 @@ class UsuariosController extends Controller
                 'password' => 'required',
             ]);
 
-            if(Auth::attempt($credenciais)) {
-                return redirect()->route('index');
+            if(Auth::attempt($credenciais)) { // middleware de autenticação do laravel
+                return redirect()->intended(route('index')); // intended "intencional"
             }else{
                 return redirect()->route('login')->with('erro', 'Usuário ou senha inválidos');
             }

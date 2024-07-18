@@ -9,8 +9,6 @@ Route::get('/', function () { // página inicial
 })->name('index');
 
 Route::get('/hoteis', [hoteisController::class, 'index'])->name('hoteis');
-Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios');
-
 
 // Hoteis
 Route::get('/hoteis/cadastrar', [hoteisController::class, 'cadastrar'])->name('hoteis.cadastrar');
@@ -23,14 +21,20 @@ Route::get('/hoteis/alterar/{hotel}', [hoteisController::class, 'alterar'])->nam
 Route::put('/hoteis/alterar/{hotel}', [hoteisController::class, 'alterarGravar']);
 
 # Usuários
-Route::get('/usuarios/cadastrar/', [UsuariosController::class, 'cadastrar'])->name('usuarios.cadastrar');
-Route::post('/usuarios/cadastrar', [UsuariosController::class, 'gravar'])->name('usuarios.gravar');
+Route::prefix('usuarios')->middleware('auth')->group(function() {
 
-Route::get('/usuarios/apagar/{usuario}', [UsuariosController::class, 'apagar'])->name('usuarios.apagar');
-Route::delete('/usuarios/apagar/{usuario}', [UsuariosController::class, 'deletar']);
+    Route::get('/', [UsuariosController::class, 'index'])->name('usuarios');
 
-Route::get('/usuarios/alterar/{usuario}', [UsuariosController::class, 'alterar'])->name('usuarios.alterar');
-Route::put('/usuarios/alterar/{usuario}', [UsuariosController::class, 'alterarGravar']);
+    Route::get('/cadastrar/', [UsuariosController::class, 'cadastrar'])->name('usuarios.cadastrar');
+    Route::post('/cadastrar', [UsuariosController::class, 'gravar'])->name('usuarios.gravar');
+    
+    Route::get('/apagar/{usuario}', [UsuariosController::class, 'apagar'])->name('usuarios.apagar');
+    Route::delete('/apagar/{usuario}', [UsuariosController::class, 'deletar']);
+
+    Route::get('/alterar/{usuario}', [UsuariosController::class, 'alterar'])->name('usuarios.alterar');
+    Route::put('/alterar/{usuario}', [UsuariosController::class, 'alterarGravar']);
+
+});
 
 #Login
 Route::get('/login', [UsuariosController::class, 'login'])->name('login'); // alt + shift + baixo

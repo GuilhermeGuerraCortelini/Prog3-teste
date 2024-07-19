@@ -20,14 +20,14 @@ class UsuariosSeeder extends Seeder
                 'email' => 'admin@email.com',
                 'username' => 'Admin',
                 'password' => Hash::make('123'),
-                'admin' => false,
+                'admin' => true,
             ],
             [
                 'name' => 'admin2',
                 'email' => 'admin2@email.com',
                 'username' => 'Admin2',
                 'password' => Hash::make('admin123'),
-                'admin' => true,
+                'admin' => false,
             ]
         ]);
     }
